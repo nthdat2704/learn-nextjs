@@ -27,9 +27,9 @@ export async function getServerSideProps(context) {
   const { postId } = context?.query;
   context.res.setHeader(
     "Cache-Control",
-    "s-maxage=15, stale-while-revalidate=15"
+    "s-maxage=30, stale-while-revalidate=30"
   );
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(
     `https://js-post-api.herokuapp.com/api/posts/${postId}`
   );
