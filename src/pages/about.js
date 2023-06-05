@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
   const { postId } = context?.query;
   context.res.setHeader(
     "Cache-Control",
-    "s-maxage=30, stale-while-revalidate=30"
+    "s-maxage=20, stale-while-revalidate=60"
   );
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(
